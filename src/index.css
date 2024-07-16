@@ -1,5 +1,9 @@
+
 body {
+
   margin: 0;
+  width: 100%;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +11,241 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.logo {
+  height: 35px;
+  width: 35px;
+  margin: 0 3% 15px 2%;
+}
+
+.login-btn {
+
+  margin-left: 100px;
+  margin-bottom: 10px !important;
+  background-color: black !important;
+  color: white !important;
+}
+
+
+.login-btn:hover {
+  border-color: black !important;
+  color: black !important;
+  background-color: white !important;
+}
+
+#menu-appbar{
+  margin-bottom: 15px;
+}
+
+.nav-btn{
+  margin: 0 10px 0 10px !important;
+}
+
+.nav-btn:hover{
+  background-color: rgba(255, 0, 255, 0.116) !important;
+}
+
+.nav-btn:active{
+  background-color: rgba(255, 0, 255, 0.411) !important;
+}
+
+
+
+.banner-section{
+  background-color: #ffe6fe;
+height: 100%;
+width: 100%;
+}
+
+.refer-btn-banner{
+  font-size: 15px;
+  margin: 45px  0 25px 0 !important;
+  width: 50%;
+  height: 50px;
+  background-color: rgb(0, 0, 0) !important;
+  border-color: black !important;
+
+  color: rgb(255, 255, 255)!important;
+ border: 4px;
+}
+
+
+.refer-btn-banner:hover{
+  background-color: rgba(0, 0, 0, 0) !important;
+  border-color: rgb(0, 0, 0) !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+/* .banner-text-1{
+  font-size: 4vw;
+}
+
+.banner-text-2{
+  font-size: 2vw;
+  font-size: medium;
+} */
+
+@media only screen and (min-width: 1100px) {
+.banner-grid{
+  display: flex !important;
+  flex-direction: row !important;
+}
+}
+
+  @media only screen and (max-width: 1100px) {
+.banner-grid{    
+  display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+}
+
+.banner-img{
+  height: 90%;
+  width: 90%;
+}
+
+.bg-1 {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='1874' height='1081' viewBox='0 0 1874 1081' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1044.16 891.269C981.551 910.356 914.999 912.534 851.268 897.581L840.064 894.971L845.282 872.568L856.486 875.178C923.822 891.037 994.36 886.399 1059.03 861.861C1123.71 837.323 1179.56 794.007 1219.41 737.48C1330.31 581.001 1293.19 363.472 1136.66 252.572C1099.38 226.161 1057.26 207.349 1012.71 197.209C968.162 187.07 922.053 185.802 877.016 193.479C831.979 201.155 788.897 217.625 750.23 241.948C711.562 266.271 678.066 297.971 651.654 335.238C587.459 425.82 570.36 538.411 604.742 644.14L608.3 655.079L586.418 662.188L582.861 651.249C546.747 540.197 565.446 417.089 632.878 321.937C661.037 282.206 696.748 248.409 737.973 222.477C779.198 196.546 825.129 178.987 873.144 170.803C921.159 162.619 970.318 163.97 1017.81 174.78C1065.31 185.59 1110.21 205.647 1149.96 233.805C1316.84 352.039 1356.41 583.952 1238.18 750.78C1190.87 817.816 1122.62 867.234 1044.16 891.269Z' fill='%23F6F6F6'/%3e%3cpath d='M1310.83 949.45C1290.19 968.016 1268.23 985.057 1245.12 1000.44C1120.45 1083.48 970.894 1113.02 823.991 1083.61C677.089 1054.2 550.43 969.358 467.346 844.72C295.829 587.425 365.658 238.63 623.009 67.1982C813.566 -59.7455 1059.21 -58.8054 1248.82 69.59L1258.34 76.0406L1245.44 95.0848L1235.92 88.6341C1054.09 -34.4923 818.515 -35.3948 635.772 86.3442C388.98 250.744 322.015 585.23 486.495 831.97C566.173 951.493 687.634 1032.86 828.51 1061.06C969.385 1089.26 1112.81 1060.94 1232.36 981.301C1375.22 886.136 1462.29 733.125 1471.26 561.499L1471.86 550.014L1494.83 551.217L1494.23 562.702C1486.35 713.586 1420.56 850.676 1310.83 949.45Z' fill='%23F6F6F6'/%3e%3cpath d='M1154.17 1254.17C997.211 1302.33 828.745 1297.43 674.831 1240.24C387.348 1133.78 195.048 867.08 184.924 560.782L184.544 549.287L207.539 548.531L207.919 560.026C217.738 856.94 404.144 1115.48 682.823 1218.67C832.022 1274.09 995.318 1278.84 1147.47 1232.18C1357.39 1168.05 1536.12 1010.3 1618.04 789.098C1685.54 606.844 1678.01 409.21 1596.83 232.601C1515.65 55.9916 1370.54 -78.4491 1188.23 -145.96L1177.45 -149.955L1185.43 -171.525L1196.22 -167.53C1384.29 -97.8868 1533.99 40.8053 1617.74 222.998C1701.48 405.191 1709.26 609.074 1639.62 797.085C1555.11 1025.26 1370.7 1188 1154.17 1254.17Z' fill='%23F6F6F6'/%3e%3c/svg%3e");
+  background-size: cover;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  margin: 25px 0 25px 0;
+  background-position: center;
+  padding: 25px !important;
+}
+
+.custom-question-mark {
+  color: green;
+}
+
+.bg-1-hr{
+  width: 15%;
+  height: 2px;
+  border-radius: 28px;
+  background: radial-gradient(circle, rgba(163,163,163,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+.bg-2-process-img{
+  width: 200px;
+  height: 200px;
+  margin: 10px 0 0 0;
+}
+
+.HowItWorks{
+  margin: 25px 0 25px 0;
+}
+.refer-btn {
+  margin: 25px  0 25px 0 !important;
+  width: 170px;
+  height: 40px;
+  border-color: rgb(255, 78, 255) !important;
+  color: rgb(114, 1, 114)!important;
+ border: 4px;
+}
+
+
+.refer-btn:hover {
+  background-color: rgb(0, 0, 0) !important;
+  border-color: black !important;
+  color: white !important;
+}
+
+.how-p{
+  color:#6c1468;
+}
+
+.Rewards{
+  margin: 25px 0 25px 0;
+  padding: 25px;
+  background-color: #ffe6fe;
+}
+.Rewards-title{
+  margin-bottom: 35px;
+}
+
+.RewardsDiv{
+  height: 80%;
+  background-color: white;
+  margin: 10px;
+  box-shadow: 2px 2px 9px 1px rgba(0,0,0,0.3);
+  padding: 10px 20px 10px 20px;
+  border-radius: 28px;
+}
+
+.RewardDiv-text-1{
+  color: #14b414;
+}
+
+
+.refer-btn-rewards {
+  margin: 45px  0 25px 0 !important;
+  width: 170px;
+  height: 40px;
+  background-color: rgb(0, 0, 0) !important;
+  border-color: black !important;
+ 
+  color: rgb(255, 255, 255)!important;
+ border: 4px;
+}
+
+
+.refer-btn-rewards:hover {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border-color: rgb(0, 0, 0) !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+.FAQs{
+  margin: 25px 0 25px 0;
+  padding: 25px;
+}
+
+.FAQs-Question{
+  color: rgb(114, 1, 114);
+}
+
+.custom-Accordion{
+  align-self: center;
+  border: 0 !important;
+  box-shadow: none !important;
+  width: 70%;
+
+}
+
+.MuiBox-root{
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.FAQ-Accordion{
+  margin: 45px 0 25px 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer{
+text-align: left;
+background-color: black;
+padding: 50px;
+color: white;
+}
+
+.footer>h4{
+  font-weight:bold;
+}
+
+.footer p{
+  font-weight: 200;
+  color: rgb(165, 165, 165);
+}
+
+.logo-footer{
+  height: 30%;
+  width: 30%;
 }
