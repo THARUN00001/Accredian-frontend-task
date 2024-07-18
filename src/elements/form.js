@@ -29,7 +29,7 @@ export default function VerticalLinearStepper({handleClose}) {
   const [formData, setFormData] = React.useState({
     ReferrerUsername: '',
     ReferrerEmail: '',
-    ReferreeUsername: '',
+    RefereeUsername: '',
     RefereeEmail: ''
 
   });
@@ -47,7 +47,7 @@ export default function VerticalLinearStepper({handleClose}) {
     setFormData({
       ReferrerUsername: '',
       ReferrerEmail: '',
-      ReferreeUsername: '',
+      RefereeUsername: '',
       RefereeEmail: ''
     });
   };
@@ -63,8 +63,12 @@ export default function VerticalLinearStepper({handleClose}) {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
-    axios.post('/data', formData)
+
+    axios.post('https://accredian-backend-task-tijy.onrender.com/', formData,{
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      }
+    })
       .then(response => {
         console.log('Success:', response.data);
         handleNext();
@@ -148,8 +152,8 @@ export default function VerticalLinearStepper({handleClose}) {
                     <TextField
                     required
                     label="Name"
-                    name="ReferreeUsername"
-                    value={formData.ReferreeUsername}
+                    name="RefereeUsername"
+                    value={formData.RefereeUsername}
                     onChange={handleChange}
                     variant="outlined"
                     
@@ -175,7 +179,7 @@ export default function VerticalLinearStepper({handleClose}) {
                     onClick={index === steps.length - 1 ? submit: handleNext}
 
                     sx={{ mt: 1, mr: 1 }}
-                    disabled={(index === 0 && !formData.ReferrerUsername) || (index === 0 && !formData.ReferrerEmail) || (index === 1 && !formData.ReferreeUsername) || (index === 1 && !formData.RefereeEmail)}
+                    disabled={(index === 0 && !formData.ReferrerUsername) || (index === 0 && !formData.ReferrerEmail) || (index === 1 && !formData.RefereeUsername) || (index === 1 && !formData.RefereeEmail)}
                   >
                     {index === steps.length - 1 ? 'Refer' : 'Continue'}
                   </Button>
