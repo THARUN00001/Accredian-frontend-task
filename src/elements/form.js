@@ -33,6 +33,11 @@ export default function VerticalLinearStepper({handleClose}) {
     RefereeEmail: ''
 
   });
+  const [isEmailValid, setIsEmailValid] = React.useState(true);
+  const [emailError, setEmailError] = React.useState({
+    ReferrerEmail: '',
+    RefereeEmail: ''
+  });
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -50,9 +55,23 @@ export default function VerticalLinearStepper({handleClose}) {
       RefereeUsername: '',
       RefereeEmail: ''
     });
+    setIsEmailValid(true);
   };
 
 
+  const checkEmail = (email) => {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,8}$/;
+    setIsEmailValid(emailPattern.test(email));
+    // setIsEmailValid((prev) => ({
+    //   ...prev,
+    //   ['ReferrerEmail']: emailPattern.test(email),
+    // }));
+    setEmailError((prev) => ({
+      ...prev,
+      ['ReferrerEmail']: emailPattern.test(email) ? '' : 'Enter a valid email address',
+      ['RefereeEmail']: emailPattern.test(email) ? '' : 'Enter a valid email address',
+    }));
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,6 +79,10 @@ export default function VerticalLinearStepper({handleClose}) {
       ...prevData,
       [name]: value,
     }));
+
+    if (name === 'ReferrerEmail' || name === 'RefereeEmail') {
+      checkEmail(value);
+    }
   };
 
   const handleSubmit = () => {
@@ -136,13 +159,15 @@ export default function VerticalLinearStepper({handleClose}) {
                   />
                   <br></br>
                 <TextField
+                id='email'
                 required
                     label="Email"
                     name="ReferrerEmail"
                     value={formData.ReferrerEmail}
                     onChange={handleChange}
                     variant="outlined"
-                    
+                    error={!isEmailValid }
+                    helperText={emailError.ReferrerEmail}
                     margin="normal"
                   />
                     </div>
@@ -167,7 +192,8 @@ export default function VerticalLinearStepper({handleClose}) {
                     value={formData.RefereeEmail}
                     onChange={handleChange}
                     variant="outlined"
-                    
+                    error={!isEmailValid}
+                    helperText={emailError.RefereeEmail}
                     margin="normal"
                   />
                     </div>
@@ -175,11 +201,14 @@ export default function VerticalLinearStepper({handleClose}) {
                 <div>
                   <Button
                     variant="contained"
-                    
+                    id='contButton'
                     onClick={index === steps.length - 1 ? submit: handleNext}
 
                     sx={{ mt: 1, mr: 1 }}
-                    disabled={(index === 0 && !formData.ReferrerUsername) || (index === 0 && !formData.ReferrerEmail) || (index === 1 && !formData.RefereeUsername) || (index === 1 && !formData.RefereeEmail)}
+                    disabled={
+                      (index === 0 && (!formData.ReferrerUsername || !formData.ReferrerEmail || !isEmailValid)) ||
+                      (index === 1 && (!formData.RefereeUsername || !formData.RefereeEmail || !isEmailValid))
+                      }
                   >
                     {index === steps.length - 1 ? 'Refer' : 'Continue'}
                   </Button>
@@ -211,3 +240,6 @@ export default function VerticalLinearStepper({handleClose}) {
   </Box>
   );
 }
+
+// check if email is valid if yes tn allow continue button or dont allow to continue
+
